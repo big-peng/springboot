@@ -1,0 +1,65 @@
+server:
+  port: 9001
+  tomcat:
+    max-http-post-size: -1
+
+spring:
+  application:
+    name: demo
+
+  datasource:
+    driver-class-name: com.p6spy.engine.spy.P6SpyDriver #com.mysql.cj.jdbc.Driver
+    url: jdbc:p6spy:mysql://localhost:3306/sippr?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  #redis
+  redis:
+    host: localhost
+    port: 9610
+    #password: 123456
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:9998
+
+  servlet:
+    multipart:
+      max-request-size: 215MB
+      max-file-size: 200MB
+      file-size-threshold: 32KB
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+    health:
+      sensitive: false
+  endpoint:
+    health:
+      show-details: ALWAYS
+    logfile:
+      external-file:
+
+#mybaits-plus配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+
+#极光推送管理
+JPush:
+  appKey: a86d938a383e6af66029d956
+  master:
+    secret: 9de332c76faeeaa3e2e8d151
+  application:
+    name: com.deyi.demo1
+
+
+logging:
+  file:
+    name: E:/logs/web_error.log
+  path: E:/logs
