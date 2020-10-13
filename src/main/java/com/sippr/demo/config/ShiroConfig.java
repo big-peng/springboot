@@ -57,7 +57,6 @@ public class ShiroConfig {
         filterMap.put("/actuator/**", "anon");
         filterMap.put("/instances/**", "anon");
         filterMap.put("/webjars/**", "anon");
-        //test
         //Druid
         filterMap.put("/druid/**", "anon");
         filterMap.put("/app/**", "anon");

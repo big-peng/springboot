@@ -1,7 +1,8 @@
 package com.sippr.demo.modules.test.controller;
 
 import com.google.code.kaptcha.Producer;
-import com.sippr.demo.common.exception.CommonException;
+import com.sippr.demo.modules.test.mapper.TestMapper;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -28,11 +29,13 @@ import java.io.IOException;
 public class TestController {
     @Autowired
     private Producer producer;
+    @Autowired
+    private TestMapper testMapper;
 
     @GetMapping("/test/message")
-    public String getTest(@RequestParam("name") String name){
-        log.info("测试人员：{}",name);
-        throw new CommonException("测试异常处理");
+    @ApiOperation("测试")
+    public Object getTest(@RequestParam("name") String name){
+        return testMapper.test("");
     }
 
     @GetMapping("/image/captcha")

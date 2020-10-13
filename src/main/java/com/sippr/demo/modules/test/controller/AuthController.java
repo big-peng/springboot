@@ -5,6 +5,7 @@ import com.sippr.demo.common.result.ApiResult;
 import com.sippr.demo.modules.test.service.LoginAuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequestMapping("/auth")
 @Api(tags = "认证")
+@Slf4j
 public class AuthController {
     @Autowired
     private LoginAuthService loginAuthService;
@@ -22,6 +24,7 @@ public class AuthController {
     @GetMapping("/login")
     @ApiOperation("登录")
     public ApiResult<AuthToken> loginAuth(@RequestParam("username") String username, @RequestParam("password") String password){
+        log.debug("123");
         return ApiResult.success(loginAuthService.userAuth(username, password));
     }
 }
