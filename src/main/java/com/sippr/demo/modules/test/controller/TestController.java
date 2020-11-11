@@ -1,6 +1,7 @@
 package com.sippr.demo.modules.test.controller;
 
 import com.google.code.kaptcha.Producer;
+import com.sippr.demo.config.DynamicDataSourceInit;
 import com.sippr.demo.modules.test.mapper.TestMapper;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -31,10 +32,13 @@ public class TestController {
     private Producer producer;
     @Autowired
     private TestMapper testMapper;
+    @Autowired
+    private DynamicDataSourceInit dynamicDataSourceInit;
 
     @GetMapping("/test/message")
     @ApiOperation("测试")
     public Object getTest(@RequestParam("name") String name){
+        dynamicDataSourceInit.initDataSource();
         return testMapper.test("");
     }
 

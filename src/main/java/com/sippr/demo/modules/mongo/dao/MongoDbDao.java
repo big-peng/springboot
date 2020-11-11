@@ -2,6 +2,7 @@ package com.sippr.demo.modules.mongo.dao;
 
 import com.sippr.demo.modules.mongo.entity.TestPo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;

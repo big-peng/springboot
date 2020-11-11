@@ -2,6 +2,7 @@ package com.sippr.demo.modules.test.controller;
 
 import com.sippr.demo.common.entity.AuthToken;
 import com.sippr.demo.common.result.ApiResult;
+import com.sippr.demo.config.DynamicDataSourceContextHolder;
 import com.sippr.demo.modules.test.service.LoginAuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,8 +24,11 @@ public class AuthController {
 
     @GetMapping("/login")
     @ApiOperation("登录")
-    public ApiResult<AuthToken> loginAuth(@RequestParam("username") String username, @RequestParam("password") String password){
+    public ApiResult<AuthToken> loginAuth(@RequestParam("username") String username,
+                                          @RequestParam("password") String password){
         log.debug("123");
+        String dataSourceKey = DynamicDataSourceContextHolder.getDataSourceKey();
+        log.info("当前数据源：{}", dataSourceKey);
         return ApiResult.success(loginAuthService.userAuth(username, password));
     }
 }

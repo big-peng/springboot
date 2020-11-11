@@ -35,10 +35,13 @@ public class Swagger2Config {
     @Bean
     public Docket createRestApi(){
         //添加head参数
-        ParameterBuilder tokenPar = new ParameterBuilder();
         List<Parameter> pars = new ArrayList<>();
+        ParameterBuilder tokenPar = new ParameterBuilder();
         tokenPar.name("Authorization").description("AccessToken令牌").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
+        ParameterBuilder tokenPar1 = new ParameterBuilder();
+        tokenPar1.name("tenantId").description("租户").modelRef(new ModelRef("string")).parameterType("header").required(false).build();
         pars.add(tokenPar.build());
+        pars.add(tokenPar1.build());
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
