@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class DynamicDataSourceAspect {
 
-    @Around("execution(* com.sippr.demo.modules.*.controller.*.*(..)) ")
+    @Around("execution(* com.sippr.demo.modules.file.controller.*.*(..)) ")
     public Object doAround(ProceedingJoinPoint jp) throws Throwable {
         ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = sra.getRequest();

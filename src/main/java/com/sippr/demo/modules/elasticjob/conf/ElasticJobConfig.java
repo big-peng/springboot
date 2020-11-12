@@ -2,7 +2,6 @@ package com.sippr.demo.modules.elasticjob.conf;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.sippr.demo.modules.elasticjob.job.JobDemoTask;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;

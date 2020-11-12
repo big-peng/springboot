@@ -47,30 +47,31 @@ public class ShiroConfig {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
         shiroFilter.setSecurityManager(securityManager);
 
-        //oauth过滤
+        // oauth过滤
         Map<String, Filter> filters = new HashMap<>();
         filters.put("oauth2", new OAuth2Filter());
         shiroFilter.setFilters(filters);
 
         Map<String, String> filterMap = new LinkedHashMap<>();
-        //SpringbootAdmin放行
+        // SpringbootAdmin放行
         filterMap.put("/actuator/**", "anon");
         filterMap.put("/instances/**", "anon");
         filterMap.put("/webjars/**", "anon");
-        //Druid
+        // Druid
         filterMap.put("/druid/**", "anon");
         filterMap.put("/app/**", "anon");
         //
         filterMap.put("/sys/login", "anon");
-        //Swagger2放行
+        // Swagger2放行
         filterMap.put("/swagger/**", "anon");
         filterMap.put("/v2/api-docs", "anon");
         filterMap.put("/swagger-ui.html", "anon");
         filterMap.put("/doc.html", "anon");
         filterMap.put("/swagger-resources/**", "anon");
-        //登录放行
+        // 登录放行
         filterMap.put("/auth/login", "anon");
-        //使用oauth2对应的过滤器进行请求拦截
+        filterMap.put("/webSocket", "anon");
+        // 使用oauth2对应的过滤器进行请求拦截
         filterMap.put("/**", "oauth2");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 
