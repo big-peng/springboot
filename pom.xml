@@ -22,7 +22,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
         <spring-boot-admin.version>2.2.3</spring-boot-admin.version>
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.7.1</shiro.version>
         <java-jwt.version>3.7.0</java-jwt.version>
         <fastjson.version>1.2.66</fastjson.version>
         <kaptcha.version>0.0.9</kaptcha.version>
